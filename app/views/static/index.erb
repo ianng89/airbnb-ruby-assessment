@@ -1,2 +1,29 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+WELCOME TO AIRBNB 
+<% if logged_in? %>
+<%=current_user.first_name.upcase%>
+<form method=post action=/session/destroy>
+
+<button type="submit">Log Out</button></form>
+</form>
+<% else %>
+<%= ". Please sign up below or sign in if you already have an account" %>
+<% end %>
+<br>
+<br>
+
+
+<% if logged_in? %>
+<a href="/properties" >VIEW PROPERTIES </a> &nbsp;&nbsp;
+<a href="/user/<%=current_user.id%>/bookings">VIEW BOOKINGS</a>
+<%end%>
+<% if !logged_in? %>
+<a href="/signup">SIGN UP</a>
+<form method=post action=/session/new>
+
+	<input type=text placeholder="Email" name="email"><br>
+	<input type=password placeholder="Password" name="password"></br>
+
+<button type="submit">Sign In</button></form>
+<% end %>
+
+</form>

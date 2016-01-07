@@ -1,0 +1,49 @@
+Name: <%= @property.prop_name %>
+<br>
+ID:<%= @property.id %>
+<br>
+Price: <%= @property.price %>
+<br>
+Location: <%= @property.location %>
+<br>
+Property Type: <%= @property.prop_type %>
+<br>
+Occupancy: <%= @property.occupancy %>
+<br>
+Details: <%= @property.details %>
+<br>
+Owner: <%= @property.user.first_name %>
+<br>
+<br>
+	<% if @property.user.id == session['user_id'] %>
+	<a href="/properties/<%=@property.id%>/edit">EDIT</a> &nbsp;&nbsp;<a href="/properties/<%=@property.id%>/delete">DELETE</a>
+	<% else %>
+	<a href="/properties/<%=@property.id%>/booking/new"><button type="submit" value="submit">BOOK THIS PROPERTY</button></a>
+	<% end %>
+
+
+
+<br><br><br>
+Comments:<br>
+<form action="/properties/<%=@property.id%>/comment" method="post">
+<input type="text" name="rating" placeholder="Rating (1-5)"><br><br>
+<textarea rows="4" cols="50" placeholder="Insert your comment here" name="comment_text">
+</textarea><br><br>
+<button type="submit" value="submit">Submit Comment</button>
+</form>
+
+<% @comment.each do |comment| %>
+	<p><%= comment.comment_text %>
+	<br>Rating: <%= "#{comment.rating}" + " " + "star(s)" %>
+	<br>By: <%= comment.user.username %> </p>
+		<% if comment.user.id == session['user_id'] %>
+		<a href="/properties/<%=@property.id%>/comment/<%= comment.id %>/edit"><button type="submit" value="submit">EDIT COMMENT</button></a>
+
+		<a href="/properties/<%=@property.id%>/comment/<%= comment.id %>/delete"><button type="submit" value="submit">DELETE COMMENT</button></a>
+
+		<% else %>
+		YOU CAN'T EDIT THIS COMMENT
+		<% end %>
+	<% end %>
+
+<p><a href="/properties">BACK TO PROPERTIES</a></p>

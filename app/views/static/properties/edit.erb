@@ -1,0 +1,12 @@
+THE EDIT PAGE
+
+<form action="/properties/<%=@property.id%>/edit" method="post">
+	<input type=text placeholder="Property Name" name="prop_name" value="<%=@property.prop_name%>"><br><br>
+	<input type=text placeholder="Location" name="location" value="<%=@property.location%>"><br><br>
+	<input type=text placeholder="Type" name="prop_type" value="<%=@property.prop_type%>"><br><br>
+	<input type=text placeholder="Occupancy" name="occupancy" value="<%=@property.occupancy%>"><br><br>
+	RM<input type=text placeholder="Price" name="price" value="<%=@property.price%>"><br><br>
+	<textarea name="details" class="text-form" placeholder="Details about the property" rows="10" cols="30"><%=@property.details%></textarea>
+	<br><br>
+	<input type="submit" value="Submit">
+</form>

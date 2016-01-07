@@ -1,0 +1,16 @@
+<% if @property.user.id == session['user_id'] %>
+YOU CAN'T BOOK YOUR OWN PROPERTY!
+<%else%>
+
+You are booking: <%= @property.prop_name %>
+<br><br>
+<form action="/properties/<%= @property.id %>/booking/new" method="post">
+	Start Date: <input type=date placeholder="Start Date" name="start_date" required><br><br>
+	End Date: <input type=date placeholder="End Date" name="end_date"><br><br>
+	Number of Days: <input type=text placeholder="Number of Days" name="num_of_days" value="2" disabled><br><br>
+	Total Price: <input type=text placeholder="Total Price" name="total_price" value="100" disabled><br><br>
+	<br><br>
+	<input type="submit" value="Submit">
+</form>
+<%end%>
+<a href="/properties/<%= @property.id %>">BACK</a>

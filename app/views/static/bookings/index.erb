@@ -1,0 +1,16 @@
+Your bookings:
+<br><br>
+<% @booking.each do |book| %>
+
+		Booking ID: <%=book.id%>
+		<br>
+		<%=book.property.prop_name%>
+		<br>
+		Start Date: <%=book.start_date%>
+		<br>
+		End Date: <%=book.end_date%>
+		<br>
+		<a href="/user/<%=book.user.id %>/bookings/<%=book.id%>/edit">EDIT BOOKING</a> &nbsp; &nbsp;
+		<a href="/user/<%=book.user.id %>/bookings/<%=book.id%>/delete">DELETE BOOKING</a>
+		<br><br>
+	<% end %>

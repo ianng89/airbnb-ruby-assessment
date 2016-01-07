@@ -20,6 +20,11 @@ require "sinatra/reloader" if development?
 	# embedded ruby
 require 'erb'
 require 'uri'
+
+	#others (newly added)
+require 'byebug'
+require 'bcrypt'
+enable :sessions
 ######################################################################
 
 

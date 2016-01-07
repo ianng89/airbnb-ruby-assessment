@@ -1,0 +1,7 @@
+Edit Comments:<br>
+<form action="" method="post">
+<input type="text" name="rating" placeholder="Rating (1-5)" value="<%= @comment.rating %>"><br><br>
+<textarea rows="4" cols="50" placeholder="Insert your comment here" name="comment_text"> <%= @comment.comment_text %>
+</textarea><br><br>
+<button type="submit" value="submit">Submit Comment</button>
+</form>

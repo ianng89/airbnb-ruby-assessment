@@ -1,0 +1,11 @@
+ALL PROPERTIES HERE <br> 
+<% @properties.each do |property| %>
+	<a href="/properties/<%=property.id%>">
+	
+	<%= property.prop_name%>  at RM <%= property.price %> in <%= property.location %>
+	</a>
+<br>
+<% end %> 
+<br>
+<a href="/properties/new"> CREATE NEW PROPERTY </a>
+

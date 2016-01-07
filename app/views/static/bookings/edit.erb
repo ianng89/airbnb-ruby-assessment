@@ -1,0 +1,9 @@
+Edit Booking:<br>
+<form action="/user/<%=@booking.user.id %>/bookings/<%=@booking.id %>/edit" method="post">
+	Start Date: <input type=date placeholder="Start Date" name="start_date" value="@booking.start_date" @booking.required><br><br>
+	End Date: <input type=date placeholder="End Date" name="end_date"><br><br>
+	Number of Days: <input type=text placeholder="Number of Days" name="num_of_days" value="2" disabled><br><br>
+	Total Price: <input type=text placeholder="Total Price" name="total_price" value="100" disabled><br><br>
+	<br><br>
+	<input type="submit" value="Submit">
+</form>
